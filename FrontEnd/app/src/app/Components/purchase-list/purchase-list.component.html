@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="col-12 text-end">
+    <button class="btn btn-sm btn-success" [routerLink]="['/Purchase']">
+      New Purchase
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="row">
+    <div class="col-3" *ngFor="let purchase of purchaseList">
+      <div class="profile-card-4 text-center mx-auto">
+        <div class="profile-content">
+          <div class="profile-name">
+            <p>{{ purchase.supplierName }} {{ purchase.invoiceNo }}</p>
+          </div>
+          <div class="profile-description">{{ purchase.productName }}</div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="profile-overview">
+                <p>DATE</p>
+                <p>{{ purchase.purchaseDate | date : "dd-MMM-yy" }}</p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="profile-overview">
+                <p>Quantity</p>
+                <p>{{ purchase.quantity }}</p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="profile-overview">
+                <p>Amount</p>
+                <p>{{ purchase.invoiceAmt }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

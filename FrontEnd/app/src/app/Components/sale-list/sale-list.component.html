@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="col-12 text-end">
+    <button class="btn btn-sm btn-success" [routerLink]="['/Sale']">
+      New Sale
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="row">
+    <div class="col-3" *ngFor="let sale of saleList">
+      <div class="profile-card-4 text-center mx-auto">
+        <div class="profile-content">
+          <div class="profile-name">
+            <p>{{ sale.customerName }}- {{ sale.invoiceNo }}</p>
+          </div>
+          <div class="profile-description">{{ sale.productName }}</div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="profile-overview">
+                <p>DATE</p>
+                <p>{{ sale.saledate | date : "dd-MMM-yy" }}</p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="profile-overview">
+                <p>Quantity</p>
+                <p>{{ sale.quantity }}</p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="profile-overview">
+                <p>Amount</p>
+                <p>{{ sale.totalAmt }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

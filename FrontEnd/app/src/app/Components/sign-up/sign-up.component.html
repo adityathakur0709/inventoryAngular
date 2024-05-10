@@ -1,0 +1,68 @@
+<div class="container">
+  <h2>Register</h2>
+  <form (submit)="signUpForm.valid && SignUp()" #signUpForm="ngForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        required
+        [(ngModel)]="username"
+        #usernameInput="ngModel"
+      />
+      <div
+        *ngIf="
+          usernameInput.invalid &&
+          (usernameInput.dirty || usernameInput.touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="usernameInput.errors">Username is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        [(ngModel)]="email"
+        #emailInput="ngModel"
+      />
+      <div
+        *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)"
+        class="text-danger"
+      >
+        <div *ngIf="emailInput.errors">Email is required.</div>
+        <div *ngIf="emailInput.errors">Please enter a valid email address.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        #passwordInput="ngModel"
+      />
+      <div
+        *ngIf="
+          passwordInput.invalid &&
+          (passwordInput.dirty || passwordInput.touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="passwordInput.errors">Password is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit">Register</button>
+    </div>
+    <div class="form-group">
+      <button type="button" (click)="signIn()">Have Account? Sign-In</button>
+    </div>
+  </form>
+</div>
